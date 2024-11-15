@@ -27,6 +27,6 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run apt
-        run: apt update && apt install -y python3-tomli
+        run: sudo apt update && sudo apt install -y python3-tomli
 
       
