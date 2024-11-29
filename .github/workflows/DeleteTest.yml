@@ -22,22 +22,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Delete
-        run: |
-          df -h
-          rm -rf /usr/share/dotnet
-          df -h
-          rm -rf /usr/local/lib/android
-          df -h
-          rm -rf /opt/ghc
-          df -h
-          rm -rf /opt/hostedtoolcache/CodeQL
-          df -h
-          docker image prune --all --force   
-          df -h
-          
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4
+      
+      - name: Delete
+        run: |
+          chmod +x ./.github/clean-rootfs.sh
+          ./.github/clean-rootfs.sh
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
