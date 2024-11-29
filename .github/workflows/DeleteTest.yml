@@ -25,9 +25,15 @@ jobs:
       - name: Delete
         run: |
           df -h
-          sudo docker image prune --all --force
+          sudo rm -rf /usr/share/dotnet
           df -h
-          sudo docker builder prune --all --force
+          sudo rm -rf /usr/local/lib/android
+          df -h
+          sudo rm -rf /opt/ghc
+          df -h
+          sudo rm -rf /opt/hostedtoolcache/CodeQL
+          df -h
+          sudo docker image prune --all --force   
           df -h
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
