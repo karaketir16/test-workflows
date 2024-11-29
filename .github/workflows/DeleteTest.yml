@@ -27,8 +27,8 @@ jobs:
       
       - name: Delete
         run: |
-          chmod +x ./.github/clean-rootfs.sh
-          ./.github/clean-rootfs.sh
+          sudo chmod +x ./.github/clean-rootfs.sh
+          sudo ./.github/clean-rootfs.sh
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
